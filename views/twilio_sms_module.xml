@@ -1,0 +1,46 @@
+<odoo>
+    <record model="ir.ui.view" id="twilio_sms_module_tree">
+        <field name="name">twilio_sms_module_tree</field>
+        <field name="model">twilio.sms.module</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+        <tree string="twiliosmstree">
+            <field name="name" />
+            <field name="account_sid" />
+            <field name="authen_token" />
+            <field name="phone_number" />
+            <field name="default" />
+        </tree>
+        </field>
+    </record>
+
+     <record model="ir.ui.view" id="twilio_sms_module_form">
+        <field name="name">twilio_sms_module_form</field>
+        <field name="model">twilio.sms.module</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+        <form string="Twilio SMS Form">
+            <sheet>
+                <group string="Setup Twilio SMS" col="2"
+                colspan="2">
+                     <field name="name" />
+                    <field name="account_sid" />
+                    <field name="authen_token" />
+                    <field name="phone_number" />
+                    <field name="default" />
+                </group>
+            </sheet>
+        </form>
+        </field>
+     </record>
+
+      <record model="ir.actions.act_window" id="action_twilio_sms_module_views">
+          <field name="name">Twilio SMS</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+          <field name="res_model">twilio.sms.module</field>
+      </record>
+
+
+      <menuitem name="Twilio Setup" id="TwilioSMS"  action="action_twilio_sms_module_views" groups="base.group_system"/>
+</odoo>
